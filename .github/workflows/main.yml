@@ -1,12 +1,35 @@
-name: Publish NPM Package
+name: CI & Publish NPM Package
+
 on:
   push:
     branches:
       - main
+  pull_request:
   release:
     types: [created]
+
 jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - run: npm install
+      - run: npm test
+      - run: npm run build
+      - run: npm run build-storybook
+
+      - name: Check broken links
+        run: npx linkinator ./storybook-static --recurse --skip "https?://"
+
   publish:
+    needs: checks
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,8 +39,8 @@ jobs:
         with:
           node-version: "20"
           registry-url: "https://registry.npmjs.org/"
+
       - run: npm install
-      - run: npm test
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_FINTECH }}
