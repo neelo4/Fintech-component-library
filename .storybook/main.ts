@@ -1,4 +1,4 @@
-import type { StorybookConfig } from "@storybook/react";
+import type { StorybookConfig } from "@storybook/react-vite";
 
 const config: StorybookConfig = {
   staticDirs: ["../public"],
@@ -10,7 +10,6 @@ const config: StorybookConfig = {
     "@storybook/addon-docs",
     "@storybook/addon-onboarding",
   ],
-
   framework: "@storybook/react-vite",
 };
 

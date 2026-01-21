@@ -44,8 +44,8 @@ export const Button: React.FC<ButtonProps> = ({
 
   const classes = [
     baseClasses,
-    variantClasses[variant],
-    sizeClasses[size],
+    variantClasses[variant] ?? variantClasses.primary,
+    sizeClasses[size] ?? sizeClasses.md,
     disabled && "opacity-50 cursor-not-allowed",
     className,
   ]

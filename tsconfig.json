@@ -22,9 +22,7 @@
 
     /* Library mode */
     "declaration": true,
-    "declarationMap": true,
-    "outDir": "dist"
+    "declarationMap": true
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src", ".storybook", "global.d.ts"]
 }
