@@ -5,11 +5,12 @@ const meta: Meta<typeof Button> = {
   title: "Components/Button",
   component: Button,
   args: {
-    label: "Button",
+    children: "Button",
     variant: "primary",
     size: "md",
     disabled: false,
   },
+
   argTypes: {
     variant: {
       control: "select",
