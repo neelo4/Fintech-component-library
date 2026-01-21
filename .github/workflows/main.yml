@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 name: CI & Publish NPM Package
 
 on:
@@ -30,17 +31,47 @@ jobs:
   publish:
     needs: checks
     if: github.ref == 'refs/heads/main'
+=======
+name: CI & Publish
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  checks:
+>>>>>>> cb39933 (add quality gates)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - run: npm install
+      - run: npm test
+      - run: npm run build
+      - run: npm run build-storybook
+
+  publish:
+    needs: checks
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
         with:
           node-version: "20"
           registry-url: "https://registry.npmjs.org/"
 
       - run: npm install
+<<<<<<< HEAD
       - run: npm publish
+=======
+      - run: npm run release
+>>>>>>> cb39933 (add quality gates)
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_FINTECH }}
