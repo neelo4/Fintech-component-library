@@ -19,12 +19,12 @@ describe("Button", () => {
 
   it("applies primary variant by default", () => {
     render(<Button>Click me</Button>);
-    expect(screen.getByRole("button")).toHaveClass("bg-blue-600");
+    expect(screen.getByRole("button")).toHaveClass("bg-primary");
   });
 
   it("applies secondary variant", () => {
     render(<Button variant="secondary">Click me</Button>);
-    expect(screen.getByRole("button")).toHaveClass("bg-gray-600");
+    expect(screen.getByRole("button")).toHaveClass("bg-secondary");
   });
 
   it("is disabled when disabled prop is true", () => {
