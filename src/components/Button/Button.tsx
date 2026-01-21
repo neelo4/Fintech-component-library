@@ -27,12 +27,12 @@ export const Button: React.FC<ButtonProps> = ({
     "inline-flex items-center justify-center font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200";
 
   const variantClasses: Record<string, string> = {
-    primary: "bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500",
-    secondary: "bg-gray-600 hover:bg-gray-700 text-white focus:ring-gray-500",
-    success: "bg-green-600 hover:bg-green-700 text-white focus:ring-green-500",
-    danger: "bg-red-600 hover:bg-red-700 text-white focus:ring-red-500",
-    neutral:
-      "bg-slate-200 hover:bg-slate-300 text-slate-900 focus:ring-slate-400",
+    primary: "bg-primary hover:bg-primary/90 text-white focus:ring-primary",
+    secondary:
+      "bg-secondary hover:bg-secondary/90 text-white focus:ring-secondary",
+    success: "bg-success hover:bg-success/90 text-white focus:ring-success",
+    danger: "bg-danger hover:bg-danger/90 text-white focus:ring-danger",
+    neutral: "bg-neutral hover:bg-neutral/80 text-slate-900 focus:ring-neutral",
   };
 
   const sizeClasses: Record<string, string> = {
