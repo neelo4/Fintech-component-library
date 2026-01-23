@@ -35,6 +35,12 @@ import { ButtonThemeProvider } from "fintech-component-library";
 - To add brand-specific styles, extend `variants`/`sizes` via the provider instead of forking the component.
 - When adding new requirements (split buttons, destructive confirmations, etc.), treat this Button as the foundational primitive so other teams inherit accessibility and theme guardrails automatically.
 
+### Step 5 – Configurable Form Component
+- `packages/ui/src/components/Form/Form.tsx` introduces a schema-driven `<Form>` component that accepts a `fields` array (text/email/select/textarea/checkbox/custom renderers) and handles state, validation, and submission helpers.
+- Each field supports required + custom validation functions, helper/description text, and optional `component` renderers for bespoke controls (sliders, date pickers, etc.).
+- Stories (`Form.stories.tsx`) demonstrate vertical/horizontal layouts, organization-specific validation, and custom renderers; tests assert submission, validation, and reset behavior (`Form.test.tsx`).
+- Import via `import { Form } from "fintech-component-library";` and pass an `onSubmit` handler—every project gets consistent styles and accessibility defaults without bespoke forms.
+
 ### Local Commands
 - `npm run dev:storybook` – develop components in isolation.
 - `npm test` – verify Jest + a11y coverage.
