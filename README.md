@@ -41,6 +41,12 @@ import { ButtonThemeProvider } from "fintech-component-library";
 - Stories (`Form.stories.tsx`) demonstrate vertical/horizontal layouts, organization-specific validation, and custom renderers; tests assert submission, validation, and reset behavior (`Form.test.tsx`).
 - Import via `import { Form } from "fintech-component-library";` and pass an `onSubmit` handler—every project gets consistent styles and accessibility defaults without bespoke forms.
 
+### Step 6 – Data Table Architecture
+- The `DataTable` component pairs a headless hook (`useDataTable`) with a presentational layer to deliver sorting, filtering, pagination, sticky headers, column resizing, and custom cell renderers out of the box.
+- Columns define accessors, widths, and optional `cell` renderers so finance/cloud themes can inject chips, KPI layouts, or status badges.
+- The hook memoizes filtered/sorted/paginated slices, keeping performance high even with large datasets.
+- See `DATA_TABLE.md` for a full write-up of the design decisions, accessibility considerations, and future enhancements.
+
 ### Local Commands
 - `npm run dev:storybook` – develop components in isolation.
 - `npm test` – verify Jest + a11y coverage.

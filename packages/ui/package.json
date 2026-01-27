@@ -1,6 +1,6 @@
 {
   "name": "fintech-component-library",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "main": "./dist/fintech-component-library.umd.js",
   "module": "./dist/fintech-component-library.es.js",
   "types": "./dist/index.d.ts",
